@@ -10,31 +10,56 @@ form.addEventListener("submit", (e) => {
     window.location.href = "admin.html";
     return;
   }
-  authencation(username, password);
-  localStorageAuthencation(username, password);
+  // if (localStorageAuthencation(username, password)) {
+  //   localStorageAuthencation(username, password);
+  // } else {
+  //   authencation(username, password);
+  // }
+  const userExistsInUsers2 = listUser.some(
+    (user1) => user1.username === username
+  );
+  if (userExistsInUsers2) {
+    authencation(username, password);
+  } else {
+    localStorageAuthencation(username, password);
+  }
+  console.log(userExistsInUsers2);
 });
 
 function authencation(username, password) {
-  listUser.forEach((user) => {
-    if (user.username === username && user.password === password) {
+  let flag = false;
+  for (let i = 0; i < listUser.length; i++) {
+    const element = listUser[i];
+    if (element.username === username && element.password == password) {
+      flag = true;
       JSON.stringify(localStorage.setItem("isLogin", true));
-      checkUser(user);
-      console.log(userStorage);
-      alert("Login successfully 1");
+      checkUser(listUser[i]);
       window.location.href = "index.html";
-      return;
     }
-  });
+  }
+  if (flag) {
+    alert("Login successfully 1");
+  } else {
+    alert("Login fail 1");
+  }
+  return flag;
 }
 
 function localStorageAuthencation(username, password) {
-  userStorage.forEach((user, index) => {
-    if (user.username === username && user.password === password) {
+  let flag = false;
+  for (let i = 0; i < userStorage.length; i++) {
+    const element = userStorage[i];
+    if (element.username === username && element.password === password) {
+      flag = true;
       localStorage.setItem("isLogin", "true");
-      checkUser(user);
-      alert("Login successfully 2");
+      checkUser(userStorage[i]);
       window.location.href = "index.html";
-      return;
     }
-  });
+  }
+  if (flag) {
+    alert("Login successfully 2");
+  } else {
+    alert("Login fail 2");
+  }
+  return flag;
 }
