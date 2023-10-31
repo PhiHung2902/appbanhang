@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web site bán hàng</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+  </head>
+  <body>
+    <!-- OVERLAY -->
+    <div class="overlay"></div>
+    <div class="main">
+      <!--         HEADER        -->
+      <header class="header" id="header">
+        <a class="header_logo" href="index.html">
+          <img src="./assets/img/logo.png" alt="logo" class="logo_img" />
+        </a>
+        <div class="search">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="What do you want to search ?"
+            class="search_input"
+          />
+          <div class="search_icon">
+            <span class=""><i class="fa-solid fa-magnifying-glass"></i></span>
+          </div>
+        </div>
+        <div class="nav_action"></div>
+      </header>
+
+      <!--         CONTAINER        -->
+      <div class="container" id="container">
+        <!-- Bar menu -->
+        <div class="sidebar">
+          <div class="bar">
+            <div class="bar-user"></div>
+            <ul class="bar-list">
+              <li class="bar-item active" onclick="handleSideBarHome()">
+                <i class="fa-solid fa-house"></i>
+                <span>HOME</span>
+              </li>
+              <li class="bar-item" onclick="renderProductPage()">
+                <i class="fa-solid fa-box"></i>
+                <span>PRODUCT</span>
+              </li>
+              <li class="bar-item" onclick="renderCartPage()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>CART</span>
+              </li>
+              <li class="bar-item">
+                <i class="fa-solid fa-info"></i>
+                <span>ABOUT</span>
+              </li>
+              <li class="bar-item">
+                <i class="fa-solid fa-headset"></i>
+                <span>CONTACT</span>
+              </li>
+            </ul>
+            <div class="bottom-bar" onclick="handleSignOut()">
+              <a href="#" class="bar-item_link">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>SIGN OUT</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Content -->
+        <div class="content">
+          <!-- Slider -->
+          <div class="slide">
+            <div class="slide-item">
+              <img
+                src="https://cdn.phuckhangmobile.com/image/banner-iphone-12-pro-max-cu-sieu-giam-gia-29661j.jpg"
+                alt="slide1"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="https://cdn.phuckhangmobile.com/image/banner-apple-iphone-14-gia-re-29856j.jpg"
+                alt="slide2"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="https://cdn.phuckhangmobile.com/image/banner-apple-watch-s5-s4-gia-cuc-soc-29660j.jpg"
+                alt="slide3"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="https://cdn.phuckhangmobile.com/image/banner-iphone-13-pro-max-gia-re-qua-29665j.jpg"
+                alt="slide3"
+              />
+            </div>
+          </div>
+
+          <!-- PRODUCT -->
+          <div class="wrapper-product">
+            <h2 class="title-product">TOP PRODUCT</h2>
+            <!-- display product -->
+            <div class="product"></div>
+            <!-- phân trang -->
+            <div class="number_page">
+              <ul class="item-number_page"></ul>
+            </div>
+            <!-- cart -->
+            <div class="cart-page active">
+              <!-- header cart -->
+              <header class="header-cart">
+                <span>Product</span>
+                <span>Quantity</span>
+                <span>Price</span>
+                <span>Action</span>
+              </header>
+              <!-- content cart -->
+              <div class="cart-content"></div>
+              <div class="cart_place-order">
+                <div class="total_price"></div>
+                <button onclick="sendDataOrders()">PLACE ORDER</button>
+              </div>
+            </div>
+
+            <!-- orders -->
+            <div class="orders-page active">
+              <!-- header order -->
+              <header class="header-order">
+                <span>Product</span>
+                <span>Quantity</span>
+                <span>Price</span>
+                <span>Status</span>
+              </header>
+              <!-- content cả -->
+              <div class="orders-content"></div>
+              <div class="cart_place-order">
+                <div class="total_price-order"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--         FOOTER        -->
+      <footer class="footer" id="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="./assets/img/logo.png" alt="" />
+          </div>
+
+          <ul class="footer-list">
+            <li class="footer-item">Terms of Service</li>
+            <li class="footer-item">Privacy Policy</li>
+            <li class="footer-item">Security</li>
+            <li class="footer-item">Sitemap</li>
+          </ul>
+
+          <div class="footer-contact">
+            <div class="footer-link">
+              <span>Contact with us: </span>
+            </div>
+            <ul class="footer-contact_icon">
+              <li class="contact_icon">
+                <i class="fa-brands fa-instagram"></i>
+              </li>
+              <li class="contact_icon">
+                <i class="fa-brands fa-facebook"></i>
+              </li>
+              <li class="contact_icon"><i class="fa-brands fa-twitter"></i></li>
+              <li class="contact_icon"><i class="fa-brands fa-github"></i></li>
+            </ul>
+            <div class="footer-license">
+              <span>@Nhom7 2023</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./assets/js/notification.js"></script>
+    <script src="./assets/js/render.js"></script>
+    <script src="./assets/js/orders.js"></script>
+    <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/search.js"></script>
+    <script src="./assets/js/data/product.js"></script>
+    <script src="./assets/js/data/localStorage.js"></script>
+    <script src="./assets/js/slider.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
