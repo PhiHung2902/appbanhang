@@ -19,6 +19,7 @@
     <title>Login page</title>
   </head>
   <body>
+    <div class="overlay"></div>
     <div class="wrapper">
       <div class="container-login">
         <div class="title">
@@ -31,7 +32,7 @@
                 type="text"
                 id="username"
                 name="username"
-                placeholder="Enter your username"
+                placeholder="Tên tài khoản..."
                 class="input-login"
               />
               <div class="icon">
@@ -44,22 +45,22 @@
                 id="password"
                 name="password"
                 class="input-login"
-                placeholder="Enter your password"
+                placeholder="Mật khẩu..."
               />
               <div class="icon">
                 <i class="fa-solid fa-lock"></i>
               </div>
             </div>
             <div class="input-control">
-              <button class="btn-login" type="submit">LOGIN</button>
+              <button class="btn-login" type="submit">ĐĂNG NHẬP</button>
             </div>
             <div class="form-footer">
               <div class="left-footer">
                 <input type="checkbox" id="checkbox" />
-                <label for="checkbox">Remember me</label>
+                <label for="checkbox">Lưu thông tin đăng nhập</label>
               </div>
               <div class="right-footer">
-                <a href="./register.html"><p>You dont have account ?</p></a>
+                <a href="./register.html"><p>Bạn chưa có tài khoản ?</p></a>
               </div>
             </div>
           </div>
@@ -67,6 +68,7 @@
         <div class="footer-login"></div>
       </div>
     </div>
+    <script src="./assets/js/notification.js"></script>
     <script src="./assets/js/data/user.js"></script>
     <script src="./assets/js/data/localStorage.js"></script>
     <!-- <script src="./assets/js/index.js"></script> -->

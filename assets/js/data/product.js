@@ -4,30 +4,105 @@ const products = [
     name: "Iphone 8 64GB LL/A",
     price: 2990000,
     img: "./assets/img/product/iphone8.jpg",
+    detail: {
+      dateOfManufacture: "9/2017",
+      releaseDate: "9/2017",
+      size: "150.9 x 75.7 x 8.3 mm (5.94 x 2.98 x 0.33 in)",
+      weight: "148g",
+      technologyScreen: "LED-backlit IPS LCD",
+      sizeScreen: "4.7 inches",
+      screenResolution: "750 x 1334 pixels",
+      ios: 14,
+      cpu: "Apple A11 Bionic 6 nhân",
+      chip: "Apple A11 Bionic 6 nhân",
+      gpu: "Apple GPU 3 nhân",
+      memory: "64GB RAM 2GB",
+      pin: "1821 mAh ",
+    },
   },
   {
     id: 2,
     name: "Iphone 8 Plus 128GB 99%",
     price: 3590000,
     img: "./assets/img/product/iphone8plus.jpg",
+    detail: {
+      dateOfManufacture: "9/2017",
+      releaseDate: "9/2017",
+      size: "Đang cập nhật",
+      weight: "202g",
+      technologyScreen: "LED-backlit IPS LCD5.5 Retina HD",
+      sizeScreen: "5.5 inches",
+      screenResolution: "1080 x 1920 pixels",
+      ios: 14,
+      cpu: "Apple A11 Bionic 6 nhân",
+      chip: "Apple A11 Bionic 6 nhân",
+      gpu: "Apple GPU 3 nhân",
+      memory: "128GB RAM 3GB",
+      pin: "2691 mAh ",
+    },
   },
   {
     id: 3,
     name: "Iphone X 256GB 99%",
     price: 5290000,
     img: "./assets/img/product/iphonex.jpg",
+    detail: {
+      dateOfManufacture: "9/2017",
+      releaseDate: "9/2017",
+      size: "Đang cập nhật",
+      weight: "174g",
+      technologyScreen: "OLED5.8 Super Retina",
+      sizeScreen: "5.8 inches",
+      screenResolution: "1125 x 2436 pixels",
+      ios: 12,
+      cpu: "Apple A11 Bionic 6 nhân",
+      chip: "Apple A11 Bionic 6 nhân",
+      gpu: "Apple GPU 3 nhân",
+      memory: "256GB RAM 3GB",
+      pin: "2716 mAh ",
+    },
   },
   {
     id: 4,
     name: "Iphone XS 512GB 99%",
     price: 5890000,
     img: "./assets/img/product/iphonexs.jpg",
+    detail: {
+      dateOfManufacture: "9/2018",
+      releaseDate: "9/2018",
+      size: "Đang cập nhật",
+      weight: "174g",
+      technologyScreen: "OLED Super Retina",
+      sizeScreen: "5.8 inches",
+      screenResolution: "1125 x 2436 pixels",
+      ios: 14,
+      cpu: "Apple A12 Bionic",
+      chip: "Apple A12 Bionic",
+      gpu: "Apple GPU 3 nhân",
+      memory: "512GB RAM 4GB",
+      pin: "2658 mAh ",
+    },
   },
   {
     id: 5,
     name: "Iphone XS MAX 64GB 99%",
     price: 5990000,
     img: "./assets/img/product/iphonexsmax.jpg",
+    detail: {
+      dateOfManufacture: "9/2018",
+      releaseDate: "11/2018",
+      size: "Đang cập nhật",
+      weight: "208g",
+      technologyScreen: "OLED Super Retina",
+      sizeScreen: "6.5 inches",
+      screenResolution: "1242 x 2688 pixels",
+      ios: 14,
+      cpu: "Apple A12 Bionic",
+      chip: "Apple A12 Bionic",
+      gpu: "Apple GPU 4 nhân",
+      memory: "64GB RAM 4GB",
+      pin: "3174 mAh ",
+    },
   },
   {
     id: 6,
@@ -58,17 +133,17 @@ const products = [
     detail: {
       dateOfManufacture: "10/9/2019",
       releaseDate: "20/9/2019",
-      size: "	144 x 71.4 x 8.1 mm (5.67 x 2.81 x 0.32 in)",
+      size: "144 x 71.4 x 8.1 mm (5.67 x 2.81 x 0.32 in)",
       weight: "188g",
       technologyScreen: "Super Retina XDR OLED, HDR10, Dolby Vision",
       sizeScreen: "5.8 inches",
       screenResolution: "1125 x 2436 pixels",
       ios: 13,
-      chip: "	Apple A13 Bionic (7 nm+)",
-      cpu: "	Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)",
-      gpu: "	Apple GPU (4-nhân đồ họa)",
+      chip: "Apple A13 Bionic (7 nm+)",
+      cpu: "Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)",
+      gpu: "Apple GPU (4-nhân đồ họa)",
       memory: "64GB RAM 4GB",
-      pin: "	3046 mAh (11.67 Wh)",
+      pin: "3046 mAh (11.67 Wh)",
     },
   },
   {
@@ -424,8 +499,8 @@ const renderProduct = () => {
           <span class="">${formattedTotal}</span>
         </div>
         <div class="product-action">
-          <button class="detail-btn" data = ${index}>DETAIL</button>
-          <button class="addtocart-btn" data="${index}">ADD TO CART</button>
+          <button class="detail-btn" data="${index}">THÔNG TIN</button>
+          <button class="addtocart-btn" data="${index}">THÊM GIỎ HÀNG</button>
         </div>
       </div>
     </div>`;
@@ -483,7 +558,7 @@ renderListNumber();
 
 const detailProduct = () => {
   const itemProduct = document.querySelectorAll(".detail-btn");
-  const detailItem = itemProduct.forEach((item, index) => {
+  itemProduct.forEach((item, index) => {
     item.addEventListener("click", () => {
       const dataProduct = item.attributes.data.value;
       products.forEach((item, index) => {
@@ -497,15 +572,101 @@ const detailProduct = () => {
   });
 };
 
-const content = document.querySelector(".content");
-
+const detailPage = document.querySelector(".detail");
+const wrapperProd = document.querySelector(".wrapper-product");
 const renderProductDetail = () => {
-  content.innerHTML = "";
-  const htmls = `<h1>xin chào các bạn</h1>
-  <button>mua ngay</button>`;
-  const tag = document.createElement("div");
-  tag.innerHTML = htmls;
-  content.appendChild(tag);
+  scroolSmooth();
+  slidePage.classList.add("active");
+  wrapperProd.classList.add("active");
+  const data = JSON.parse(localStorage.getItem("product-detail"));
+  const formattedTotal = new Intl.NumberFormat("vi-VN", {
+    style: "currency",
+    currency: "VND",
+  }).format(data.price);
+  const htmls = `<div class="wrapper_detail-top">
+  <div class="detail_image">
+    <img src="${data.img}" alt="detail">
+  </div>
+  <div class="detail_action">
+    <h2 class="detail_header">${data.name}</h2>
+    <div class="detail_price">
+      <div class="price-box">
+        <span class="price-title">mua ngay</span>
+        <span class="price">${formattedTotal}</span>
+      </div>
+      <span>Or</span>
+      <div class="price-box">
+        <span class="price-title">prepaid from</span>
+        <span class="price">2.745.000 ₫</span>
+    </div>
+    </div>
+    <div class="detail_btn">
+      <button class="detail_buy">MUA NGAY</button>
+      <div class="detail_form-buy">
+        <button class="detail_amortization">MUA TRẢ GÓP</button>
+        <button class="detail_card">
+          TRẢ BẰNG THẺ</button>
+      </div>
+    </div>
+    <div class="detail_contact">
+      <p>Free purchasing consultation</p>
+      <div class="detail_contact-info">
+        <span class="detail_phone">093 233 3233</span>
+        <span class="detail_calendar">T2 - T7 (8:00 - 22:00)</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper_detail-bottom">
+  <h2>Thông tin sản phẩm</h2>
+  <div class="detail_info">
+    <span class="detail_item">
+      <p class="detail_item-left">Ngày sản xuất:</p>
+      <p class="detail_item-right">${data.detail.dateOfManufacture}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">Ngày phát hành:</p>
+      <p class="detail_item-right">${data.detail.releaseDate}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">Công nghệ màn hình:</p>
+      <p class="detail_item-right">${data.detail.technologyScreen}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">Kích thước:</p>
+      <p class="detail_item-right">${data.detail.size}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">Độ phân giải màn hình:</p>
+      <p class="detail_item-right">${data.detail.screenResolution}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">Phiên bản IOS:</p>
+      <p class="detail_item-right">${data.detail.ios}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">CHIP:</p>
+      <p class="detail_item-right">${data.detail.chip}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">CPU:</p>
+      <p class="detail_item-right">${data.detail.cpu}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">GPU:</p>
+      <p class="detail_item-right">${data.detail.gpu}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">Bộ nhớ: </p>
+      <p class="detail_item-right">${data.detail.memory}</p>
+    </span>
+    <span class="detail_item">
+      <p class="detail_item-left">Pin:</p>
+      <p class="detail_item-right">${data.detail.pin}</p>
+    </span>
+  </div>
+</div>`;
+  detailPage.innerHTML = htmls;
   window.screenTop = 0;
   barItem[1].classList.add("active");
   barItem[0].classList.remove("active");

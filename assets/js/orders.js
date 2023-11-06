@@ -4,14 +4,14 @@ const totalPriceOrders = document.querySelector(".total_price-order");
 const renderOrdersPage = (data) => {
   console.log("renderOrdersPage");
   ordersPage.classList.remove("active");
+  wrapperProd.classList.remove("active");
+  detailPage.classList.add("active");
   cartPage.classList.add("active");
   slidePage.classList.add("active");
   numberPage.classList.add("active");
   product.classList.add("active");
-  titlePage.innerText = "ORDERS";
-  console.log(data);
+  titlePage.innerText = "ĐƠN HÀNG";
   scroolSmooth();
-  console.log(quanlityProduct);
   if (data === null) {
     headerOrders.classList.add("active");
     cartPlaceHolder.classList.add("active");
@@ -72,6 +72,7 @@ function ordersFunction() {
   console.log(data);
   renderOrdersPage(data);
   renderTotalPrice("ORDERS", totalPriceOrders);
+  barItemActive(0);
 }
 
 function sendDataOrders() {
@@ -82,4 +83,5 @@ function sendDataOrders() {
   localStorage.setItem("ORDERS", JSON.stringify(ordersArr));
   localStorage.removeItem("CART");
   renderCartPage();
+  placeOrderNotification();
 }

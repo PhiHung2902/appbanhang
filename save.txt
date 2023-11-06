@@ -1,0 +1,85 @@
+
+
+        <div class="detail">
+            <!-- left -->
+            <div class="wrapper_detail-top">
+              <div class="detail_image">
+                <img src="./assets/img/product/iphone11.jpg" alt="detail">
+              </div>
+              <div class="detail_action">
+                <h2 class="detail_header">iPhone 11 64GB Quốc Tế (Zin 99% - LL/A)</h2>
+                <div class="detail_price">
+                  <div class="price-box">
+                    <span class="price-title">buy now</span>
+                    <span class="price">9,150,000 ₫</span>
+                  </div>
+                  <span>Or</span>
+                  <div class="price-box">
+                    <span class="price-title">prepaid from</span>
+                    <span class="price">2,745,000 ₫</span>
+                </div>
+                </div>
+                <div class="detail_btn">
+                  <button class="detail_buy">BUY NOW</button>
+                  <div class="detail_form-buy">
+                    <button class="detail_amortization">AMORTIZATRION</button>
+                    <button class="detail_card">
+                      PAYMENT VIA CARD</button>
+                  </div>
+                </div>
+                <div class="detail_contact">
+                  <p>Free purchasing consultation</p>
+                  <div class="detail_contact-info">
+                    <span class="detail_phone">093 233 3233</span>
+                    <span class="detail_calendar">T2 - T7 (8:00 - 22:00)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- right -->
+            <div class="wrapper_detail-bottom">
+              <h2>Specifications</h2>
+              <div class="detail_info">
+                <span class="detail_item">
+                  <p class="detail_item-left">Date of manufacture:</p>
+                  <p class="detail_item-right">10/9/2019</p>
+                </span>
+                <span class="detail_item">
+                  <p class="detail_item-left">Release date:</p>
+                  <p class="detail_item-right">20/9/2019</p>
+                </span>
+                <span class="detail_item">
+                  <p class="detail_item-left">Size:</p>
+                  <p class="detail_item-right">5.8 inches</p>
+                </span>
+                <span class="detail_item">
+                  <p class="detail_item-left">Screen resolution:</p>
+                  <p class="detail_item-right">1125 x 2436 pixels</p>
+                </span>
+                <span class="detail_item">
+                  <p class="detail_item-left">ISO:</p>
+                  <p class="detail_item-right">13</p>
+                </span>
+                <span class="detail_item">
+                  <p class="detail_item-left">CHIP:</p>
+                  <p class="detail_item-right">Apple A13 Bionic (7 nm+)</p>
+                </span>
+                <span class="detail_item">
+                  <p class="detail_item-left">CPU:</p>
+                  <p class="detail_item-right">Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)</p>
+                </span>
+                <span class="detail_item">
+                  <p class="detail_item-left">GPU:</p>
+                  <p class="detail_item-right">1125 x 2436 pixels</p>
+                </span>
+                <span class="detail_item">
+                  <p class="detail_item-left">Memory: </p>
+                  <p class="detail_item-right">64GB RAM 4GB</p>
+                </span>
+                <span class="detail_item">
+                  <p class="detail_item-left">Pin:</p>
+                  <p class="detail_item-right">3046 mAh (11.67 Wh)</p>
+                </span>
+              </div>
+            </div>
+          </div>

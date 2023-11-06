@@ -1,5 +1,5 @@
-const userStorage = JSON.parse(localStorage.getItem("USER"));
-const isLogin = JSON.parse(localStorage.getItem("isLogin"));
+// const isLogin = JSON.parse(localStorage.getItem("isLogin"));
+const userStorage = JSON.parse(localStorage.getItem("USER")) || [];
 const form = document.querySelector(".form");
 
 form.addEventListener("submit", (e) => {
@@ -7,7 +7,8 @@ form.addEventListener("submit", (e) => {
   const username = form.username.value;
   const password = form.password.value;
   if (username == "admin" && password == "admin") {
-    window.location.href = "admin.html";
+    loginNotification(true);
+    setTimeout(windowLocation, 1000);
     return;
   }
   // if (localStorageAuthencation(username, password)) {
@@ -34,13 +35,14 @@ function authencation(username, password) {
       flag = true;
       JSON.stringify(localStorage.setItem("isLogin", true));
       checkUser(listUser[i]);
-      window.location.href = "index.html";
     }
   }
   if (flag) {
-    alert("Login successfully 1");
+    loginNotification(true);
+    setTimeout(windowLocation, 1000);
   } else {
-    alert("Login fail 1");
+    loginNotification(false);
+    setTimeout(closeOverlay, 1000);
   }
   return flag;
 }
@@ -53,13 +55,18 @@ function localStorageAuthencation(username, password) {
       flag = true;
       localStorage.setItem("isLogin", "true");
       checkUser(userStorage[i]);
-      window.location.href = "index.html";
     }
   }
   if (flag) {
-    alert("Login successfully 2");
+    loginNotification(true);
+    setTimeout(windowLocation, 1000);
   } else {
-    alert("Login fail 2");
+    loginNotification(false);
+    setTimeout(closeOverlay, 1000);
   }
   return flag;
 }
+
+const windowLocation = () => {
+  window.location.href = "index.html";
+};

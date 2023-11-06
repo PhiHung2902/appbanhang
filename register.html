@@ -16,9 +16,10 @@
     />
     <link rel="stylesheet" href="./assets/css/form.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Login page</title>
+    <title>Register page</title>
   </head>
   <body>
+    <div class="overlay"></div>
     <div class="wrapper">
       <div class="container-login">
         <div class="title">
@@ -32,7 +33,7 @@
                 id="username"
                 name="username"
                 required
-                placeholder="Enter your username"
+                placeholder="Tên tài khoản..."
                 class="input-login"
               />
               <div class="icon">
@@ -46,7 +47,7 @@
                 name="password"
                 required
                 class="input-login"
-                placeholder="Enter your password"
+                placeholder="Mật khẩu..."
               />
               <div class="icon">
                 <i class="fa-solid fa-lock"></i>
@@ -59,19 +60,19 @@
                 name="confirm_password"
                 required
                 class="input-login"
-                placeholder="Confirm you password"
+                placeholder="Nhập lại mật khẩu..."
               />
               <div class="icon">
                 <i class="fa-solid fa-lock"></i>
               </div>
             </div>
             <div class="input-control">
-              <button class="btn-login">REGISTER</button>
+              <button class="btn-login">ĐĂNG KÝ</button>
             </div>
             <div class="form-footer">
               <div class="left-footer"></div>
               <div class="right-footer">
-                <a href="./login.html"><p>Login ?</p></a>
+                <a href="./login.html"><p>Đăng nhập ?</p></a>
               </div>
             </div>
           </div>
@@ -79,6 +80,7 @@
         <div class="footer-login"></div>
       </div>
     </div>
+    <script src="/assets/js/notification.js"></script>
     <script src="./assets/js/data/user.js"></script>
     <script src="./assets/js/data/localStorage.js"></script>
     <!-- <script src="./assets/js/login.js"></script> -->

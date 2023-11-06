@@ -30,15 +30,15 @@ const renderNavaction = () => {
       </li>
       <li class="popup_item-line"></li>
       <li class="popup_item">
-        <p>Favorite product</p>
+        <p>Sản phẩm yêu thích</p>
         <i class="fa-solid fa-heart"></i>
       </li>
       <li class="popup_item" onclick="ordersFunction()">
-        <p>Order</p>
+        <p>Đơn hàng của bạn</p>
         <i class="fa-regular fa-file-lines"></i>
       </li>
       <li class="popup_item">
-        <p>Support center</p>
+        <p>Trung tâm hỗ trợ</p>
         <i class="fa-regular fa-circle-question"></i>
       </li>
     </ul>
@@ -52,8 +52,14 @@ const handleSideBarHome = () => {
 
 const barItem = document.querySelectorAll(".bar-item");
 
-const barItemActive = () => {
+const barItemActive = (value) => {
   barItem.forEach((item, index) => {
+    if (value == index) {
+      document.querySelector(".bar-item.active").classList.remove("active");
+      item.classList.add("active");
+      console.log(this);
+      return;
+    }
     item.addEventListener("click", () => {
       document.querySelector(".bar-item.active").classList.remove("active");
       item.classList.add("active");
@@ -69,6 +75,7 @@ const slidePage = document.querySelector(".slide");
 const productPage = document.querySelector(".product-page");
 const ordersPage = document.querySelector(".orders-page");
 const titlePage = document.querySelector(".title-product");
+
 const renderProductPage = (value) => {
   scroolSmooth();
   product.innerHTML = "";
@@ -77,7 +84,7 @@ const renderProductPage = (value) => {
   numberPage.classList.add("active");
   ordersPage.classList.add("active");
   if (!value) {
-    titlePage.innerText = "ALL PRODUCTS";
+    titlePage.innerText = "TẤT CẢ SẢN PHẨM";
     const htmls = products.map((item, index) => {
       const formattedTotal = new Intl.NumberFormat("vi-VN", {
         style: "currency",
@@ -93,8 +100,10 @@ const renderProductPage = (value) => {
               <span class="">${formattedTotal}</span>
             </div>
             <div class="product-action">
-              <button class="detail-btn" data = ${index}>DETAIL</button>
-              <button class="addtocart-btn" data=${index} onclick="addToCart()">ADD TO CART</button>
+              <button class="detail-btn" data = ${index} onclick="detailProduct()">THÔNG TIN</button>
+              <button class="addtocart-btn" data=${
+                item.id - 1
+              } onclick="addToCart()">THÊM GIỎ HÀNG</button>
             </div>
           </div>
         </div>`;
@@ -123,8 +132,10 @@ const renderProductPage = (value) => {
                 <span class="">${formattedTotal}</span>
               </div>
               <div class="product-action">
-                <button class="detail-btn" data = ${index}>DETAIL</button>
-                <button class="addtocart-btn" data=${index} onclick="addToCart()">ADD TO CART</button>
+                <button class="detail-btn" data = ${index} onclick="detailProduct()">THÔNG TIN</button>
+                <button class="addtocart-btn" data=${
+                  item.id - 1
+                } onclick="addToCart()">THÊM GIỎ HÀNG</button>
               </div>
             </div>
           </div>`;
@@ -151,7 +162,9 @@ const renderCartPage = () => {
   slidePage.classList.add("active");
   numberPage.classList.add("active");
   product.classList.add("active");
-  titlePage.innerText = "CART";
+  detailPage.classList.add("active");
+  wrapperProd.classList.remove("active");
+  titlePage.innerText = "GIỎ HÀNG";
   if (cartLocal === null) {
     headerCart.classList.add("active");
     cartPlaceHolder.classList.add("active");
@@ -160,9 +173,9 @@ const renderCartPage = () => {
       <img src="./assets/img/cart-img.png" alt="cart" />
     </div>
     <h2 class="no_product-title">
-      THERE NO PRODUCTS IN YOUR CART
+      KHÔNG CÓ SẢN PHẨM NÀO TRONG GIỎ HÀNG CỦA BẠN
     </h2>
-    <a href="index.html" class="no_product-link">GO SHOPPING</a>
+    <a href="index.html" class="no_product-link">SHOPPING NGAY</a>
   </div>`;
     cartContent.innerHTML = htmls;
   } else {
@@ -212,7 +225,6 @@ const renderWhenClickBuy = (value) => {
 };
 
 // tính tổng tiền
-const quanlityProduct = document.querySelectorAll(".quanlity_product");
 const totalPrice = document.querySelector(".total_price");
 const renderTotalPrice = (data, element) => {
   // const productCart = JSON.parse(localStorage.getItem("CART"));
@@ -228,7 +240,7 @@ const renderTotalPrice = (data, element) => {
     style: "currency",
     currency: "VND",
   }).format(total);
-  const htmls = `<span class="total">Total price:</span>
+  const htmls = `<span class="total">Tổng tiền:</span>
   <span class="price">${formattedTotal}</span>`;
   element.innerHTML = htmls;
 };

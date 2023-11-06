@@ -13,11 +13,11 @@ const render = () => {
     bottomBar.classList.remove("active");
   } else {
     const htmls = `<div class="nav_button register">
-    <button class="nav_action-btn register-btn"><a href="register.html">REGISTER</a></button>
+    <button class="nav_action-btn register-btn"><a href="register.html">ĐĂNG KÝ</a></button>
   </div>
   <div class="nav_button login">
     <button class="nav_action-btn login-btn">
-      <a href="login.html">LOGIN</a>
+      <a href="login.html">ĐĂNG NHẬP</a>
     </button>
   </div>`;
     navAction.innerHTML = htmls;

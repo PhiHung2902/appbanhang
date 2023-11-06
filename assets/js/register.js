@@ -11,8 +11,7 @@ form.addEventListener("submit", (e) => {
     isStrongPassword(password)
   ) {
     saveUserToLocalStorage(username, password, false);
-    alert("Register Successfully !!!");
-    window.location.href = "login.html";
+    registerNotification("ĐĂNG KÍ THÀNH CÔNG", false);
   }
 });
 
@@ -20,7 +19,7 @@ function validation(username, password, confirm_password) {
   if (password === confirm_password) {
     return true;
   } else {
-    alert("password is not confirm !");
+    registerNotification(false, "Mật khẩu không giống nhau");
     return false;
   }
 }
@@ -28,26 +27,26 @@ function validation(username, password, confirm_password) {
 function isStrongPassword(password) {
   // Kiểm tra xem mật khẩu có khoảng trắng ở đầu
   if (/\s/.test(password[0])) {
-    alert("Mật khẩu không đúng định dạng (khoảng trắng đầu dòng)");
+    registerNotification(false, "Mật khẩu không được chứa kí tự khoảng trắng");
     return false;
   }
 
-  // Kiểm tra độ dài của mật khẩu (ít nhất 8 ký tự)
+  // Kiểm tra độ dài của mật khẩu (ít nhất 5 ký tự)
   if (password.length < 5) {
-    alert("Độ dài của mật khẩu ít nhất 8 ký tự");
+    registerNotification(false, "Độ dài của mật khẩu ít nhất 5 ký tự");
     return false;
   }
 
   // Kiểm tra xem mật khẩu có chứa ít nhất một ký tự số
   if (!/\d/.test(password)) {
-    alert("Mật khẩu có chứa ít nhất một ký tự số");
+    registerNotification(false, "Mật khẩu có chứa ít nhất một ký tự số");
     return false;
   }
 
   return true;
 }
 function existUser(username) {
-  const userStorage = JSON.parse(localStorage.getItem("USER"));
+  const userStorage = JSON.parse(localStorage.getItem("USER")) || [];
   const userExistsInUsers1 = listUser.some((user1) =>
     user1.username.includes(username)
   );
@@ -56,12 +55,12 @@ function existUser(username) {
   );
 
   if (userExistsInUsers1) {
-    alert("Tên tài khoản đã tồn tại.");
+    registerNotification(false, "Tên tài khoản này đã tồn tại");
     return false;
   }
 
   if (userExistsInUsers2) {
-    alert("Tên tài khoản đã tồn tại.");
+    registerNotification(false, "Tên tài khoản đã tồn tại.");
     return false;
   }
   return true;

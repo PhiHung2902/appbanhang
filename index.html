@@ -15,8 +15,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <!-- OVERLAY -->
@@ -32,7 +32,7 @@
             type="text"
             name="search"
             id="search"
-            placeholder="What do you want to search ?"
+            placeholder="Nhập sản phẩm bạn muốn tìm..."
             class="search_input"
           />
           <div class="search_icon">
@@ -50,30 +50,54 @@
             <div class="bar-user"></div>
             <ul class="bar-list">
               <li class="bar-item active" onclick="handleSideBarHome()">
-                <i class="fa-solid fa-house"></i>
-                <span>HOME</span>
+                <img
+                  src="./assets/icon/house.svg"
+                  alt="sgv"
+                  class="bar-item_svg"
+                />
+                <span>TRANG CHỦ</span>
               </li>
               <li class="bar-item" onclick="renderProductPage()">
-                <i class="fa-solid fa-box"></i>
-                <span>PRODUCT</span>
+                <img
+                  src="./assets/icon/box-solid.svg"
+                  alt="sgv"
+                  class="bar-item_svg"
+                />
+                <span>SẢN PHẨM</span>
               </li>
               <li class="bar-item" onclick="renderCartPage()">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span>CART</span>
+                <img
+                  src="./assets/icon/cart.svg"
+                  alt="sgv"
+                  class="bar-item_svg"
+                />
+                <span>GIỎ HÀNG</span>
               </li>
               <li class="bar-item">
-                <i class="fa-solid fa-info"></i>
-                <span>ABOUT</span>
+                <img
+                  src="./assets/icon/about.svg"
+                  alt="sgv"
+                  class="bar-item_svg"
+                />
+                <span>THÔNG TIN</span>
               </li>
               <li class="bar-item">
-                <i class="fa-solid fa-headset"></i>
-                <span>CONTACT</span>
+                <img
+                  src="./assets/icon/headset.svg"
+                  alt="sgv"
+                  class="bar-item_svg"
+                />
+                <span>LIÊN HỆ</span>
               </li>
             </ul>
             <div class="bottom-bar" onclick="handleSignOut()">
               <a href="#" class="bar-item_link">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>SIGN OUT</span>
+                <img
+                  src="./assets/icon/signout.svg"
+                  alt="sgv"
+                  class="bar-item_svg"
+                />
+                <span>ĐĂNG XUẤT</span>
               </a>
             </div>
           </div>
@@ -110,7 +134,7 @@
 
           <!-- PRODUCT -->
           <div class="wrapper-product">
-            <h2 class="title-product">TOP PRODUCT</h2>
+            <h2 class="title-product">TRANG CHỦ</h2>
             <!-- display product -->
             <div class="product"></div>
             <!-- phân trang -->
@@ -121,16 +145,16 @@
             <div class="cart-page active">
               <!-- header cart -->
               <header class="header-cart">
-                <span>Product</span>
-                <span>Quantity</span>
-                <span>Price</span>
-                <span>Action</span>
+                <span>Tên sản phẩm</span>
+                <span>Số lượng</span>
+                <span>Gía bán</span>
+                <span>Tùy chỉnh</span>
               </header>
               <!-- content cart -->
               <div class="cart-content"></div>
               <div class="cart_place-order">
                 <div class="total_price"></div>
-                <button onclick="sendDataOrders()">PLACE ORDER</button>
+                <button onclick="sendDataOrders()">ĐẶT HÀNG</button>
               </div>
             </div>
 
@@ -138,10 +162,10 @@
             <div class="orders-page active">
               <!-- header order -->
               <header class="header-order">
-                <span>Product</span>
-                <span>Quantity</span>
-                <span>Price</span>
-                <span>Status</span>
+                <span>Tên sản phẩm</span>
+                <span>Số lượng</span>
+                <span>Gía bán</span>
+                <span>Trạng thái</span>
               </header>
               <!-- content cả -->
               <div class="orders-content"></div>
@@ -150,44 +174,46 @@
               </div>
             </div>
           </div>
+
+          <!-- DETAIL PRODUCT -->
+          <div class="detail"></div>
         </div>
       </div>
+    </div>
+    <!--         FOOTER        -->
+    <footer class="footer" id="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="./assets/img/logo.png" alt="" />
+        </div>
 
-      <!--         FOOTER        -->
-      <footer class="footer" id="footer">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <img src="./assets/img/logo.png" alt="" />
+        <ul class="footer-list">
+          <li class="footer-item">Terms of Service</li>
+          <li class="footer-item">Privacy Policy</li>
+          <li class="footer-item">Security</li>
+          <li class="footer-item">Sitemap</li>
+        </ul>
+
+        <div class="footer-contact">
+          <div class="footer-link">
+            <span>Contact with us: </span>
           </div>
-
-          <ul class="footer-list">
-            <li class="footer-item">Terms of Service</li>
-            <li class="footer-item">Privacy Policy</li>
-            <li class="footer-item">Security</li>
-            <li class="footer-item">Sitemap</li>
+          <ul class="footer-contact_icon">
+            <li class="contact_icon">
+              <i class="fa-brands fa-instagram"></i>
+            </li>
+            <li class="contact_icon">
+              <i class="fa-brands fa-facebook"></i>
+            </li>
+            <li class="contact_icon"><i class="fa-brands fa-twitter"></i></li>
+            <li class="contact_icon"><i class="fa-brands fa-github"></i></li>
           </ul>
-
-          <div class="footer-contact">
-            <div class="footer-link">
-              <span>Contact with us: </span>
-            </div>
-            <ul class="footer-contact_icon">
-              <li class="contact_icon">
-                <i class="fa-brands fa-instagram"></i>
-              </li>
-              <li class="contact_icon">
-                <i class="fa-brands fa-facebook"></i>
-              </li>
-              <li class="contact_icon"><i class="fa-brands fa-twitter"></i></li>
-              <li class="contact_icon"><i class="fa-brands fa-github"></i></li>
-            </ul>
-            <div class="footer-license">
-              <span>@Nhom7 2023</span>
-            </div>
+          <div class="footer-license">
+            <span>@Nhom7 2023</span>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
     <script src="./assets/js/notification.js"></script>
     <script src="./assets/js/render.js"></script>
     <script src="./assets/js/orders.js"></script>

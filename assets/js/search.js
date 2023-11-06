@@ -1,9 +1,10 @@
 const searchInput = document.querySelector(".search_input");
 
 const searchButton = document.querySelector(".search_icon");
-
 let searchArr = [];
 searchButton.addEventListener("click", () => {
+  detailPage.classList.add("active");
+  wrapperProd.classList.remove("active");
   searchProduct(searchInput.value.toUpperCase());
   renderProductPage(searchArr);
   searchArr = [];
