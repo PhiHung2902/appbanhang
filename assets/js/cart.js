@@ -3,7 +3,6 @@ function addProductToLocal(data) {
     let cartArr = JSON.parse(localStorage.getItem("CART")) || [];
     // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
     const productExists = cartArr.some((item) => item.id === data.id);
-
     if (!productExists) {
       cartArr.push(data);
       localStorage.setItem("CART", JSON.stringify(cartArr));
@@ -15,10 +14,19 @@ function addProductToLocal(data) {
 
 function addToCart() {
   const addToCartBnt = document.querySelectorAll(".addtocart-btn");
+  if (
+    JSON.parse(localStorage.getItem("addedProduct")) ||
+    JSON.parse(localStorage.getItem("deleteAdmin")) ||
+    JSON.parse(localStorage.getItem("updateAdmin"))
+  ) {
+    productsLocal2 = JSON.parse(localStorage.getItem("PRODUCTS"));
+  } else {
+    productsLocal2 = products;
+  }
   addToCartBnt.forEach((item, index) => {
     item.addEventListener("click", () => {
       const dataProduct = item.attributes.data.value;
-      products.forEach((item, index) => {
+      productsLocal2.forEach((item, index) => {
         if (dataProduct == index) {
           renderNotificationAddToCart();
           localStorage.setItem("product-cart", JSON.stringify(item));

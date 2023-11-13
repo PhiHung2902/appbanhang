@@ -9,12 +9,12 @@ const listUser = [
     password: "phucle123",
   },
   {
-    username: "tandat",
-    password: "tandat123",
-  },
-  {
     username: "phucquynh",
     password: "phucquynh123",
+  },
+  {
+    username: "tandat",
+    password: "tandat123",
   },
   {
     username: "quanghuy",

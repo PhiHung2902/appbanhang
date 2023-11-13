@@ -11,7 +11,12 @@ searchButton.addEventListener("click", () => {
 });
 
 function searchProduct(value) {
-  products.filter((item, index) => {
+  if (JSON.parse(localStorage.getItem("addedProduct"))) {
+    productsLocal2 = JSON.parse(localStorage.getItem("PRODUCTS"));
+  } else {
+    productsLocal2 = products;
+  }
+  productsLocal2.filter((item, index) => {
     if (item.name.toUpperCase().includes(value)) {
       searchArr.push(item);
     }

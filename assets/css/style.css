@@ -1,8 +1,70 @@
+/* FONT */
+@font-face {
+  font-family: "Rubik";
+  src: url("../font/Rubik-Bold.eot");
+  src: url("../font/Rubik-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../font/Rubik-Bold.woff2") format("woff2"),
+    url("../font/Rubik-Bold.woff") format("woff"),
+    url("../font/Rubik-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../font/Rubik-Light.eot");
+  src: url("../font/Rubik-Light.eot?#iefix") format("embedded-opentype"),
+    url("../font/Rubik-Light.woff2") format("woff2"),
+    url("../font/Rubik-Light.woff") format("woff"),
+    url("../font/Rubik-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../font/Rubik-Medium.eot");
+  src: url("../font/Rubik-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../font/Rubik-Medium.woff2") format("woff2"),
+    url("../font/Rubik-Medium.woff") format("woff"),
+    url("../font/Rubik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../font/Rubik-Regular.eot");
+  src: url("../font/Rubik-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../font/Rubik-Regular.woff2") format("woff2"),
+    url("../font/Rubik-Regular.woff") format("woff"),
+    url("../font/Rubik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../font/Rubik-SemiBold.eot");
+  src: url("../font/Rubik-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../font/Rubik-SemiBold.woff2") format("woff2"),
+    url("../font/Rubik-SemiBold.woff") format("woff"),
+    url("../font/Rubik-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   user-select: none;
+  font-family: "Rubik", sans-serif;
 }
 :root {
   /* set width and height */
@@ -22,7 +84,6 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
 }
 ul li {
   list-style: none;
@@ -59,6 +120,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.header.active {
+  display: none;
 }
 
 .header_logo {
@@ -108,17 +172,19 @@ button {
   background-color: white;
   border: 1px solid blue;
 }
-.search_icon:hover span {
-  color: #333;
+.search_icon:hover span svg {
+  fill: #333;
 }
 
-.navbar_bar {
+.search_icon .navbar_bar {
   height: 100%;
   display: flex;
   align-items: center;
 }
-.navbar_icon {
-  width: 50px;
+.search_icon svg {
+  width: 44px;
+  height: auto;
+  fill: white;
   padding: 0 12px;
   margin: 0 20px;
   font-size: 26px;
@@ -205,8 +271,11 @@ button {
 .action_item:hover.action_item::before {
   animation: action 0.2s linear forwards;
 }
-.bell,
-.user,
+
+.action_item svg {
+  width: 20px;
+  fill: white;
+}
 .cart {
   display: flex;
   align-items: center;
@@ -266,16 +335,16 @@ button {
 }
 
 .popup_item:hover:not(:first-child) {
-  font-weight: 600;
   transform: scale(1.01);
   cursor: pointer;
 }
-.popup_item i {
-  height: 100%;
-  width: 40px;
+.popup_item svg {
+  height: 18px;
+  width: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
+  fill: #333;
 }
 .popup_item p {
   float: left;
@@ -313,6 +382,9 @@ button {
   margin-top: 20px;
   padding-bottom: 30px;
 }
+.container.active {
+  display: none;
+}
 /*          CSS SIDEBAR */
 .sidebar {
   flex-shrink: 0;
@@ -332,7 +404,8 @@ button {
   margin: 10px 4px;
   padding: 12px 24px;
   border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -349,10 +422,14 @@ button {
 
 .bar-item.active {
   border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: white;
+  fill: white;
 }
 
-.bar-item_svg {
-  fill: white;
+.bar-item svg,
+.bottom-bar svg {
+  filter: white;
   width: 20px;
   height: 20px;
 }
@@ -507,7 +584,7 @@ button {
 }
 .product {
   display: grid;
-  grid-template-columns: 24% 24% 24% 24%;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 .product.active {
@@ -563,7 +640,11 @@ button {
 }
 .product-name {
   font-size: 15px;
+  font-weight: 500;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product-price {
   margin: 10px 0;
@@ -788,8 +869,13 @@ button {
   align-items: center;
   justify-content: center;
 }
+.cart-product_action p {
+  margin-left: 20px;
+  font-size: 14px;
+  color: #888;
+}
 
-.cart-product_action button {
+.cart_button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -826,6 +912,9 @@ button {
   justify-content: space-between;
   font-size: 24px;
   font-weight: 500;
+}
+.total_price-order {
+  margin: auto;
 }
 .cart_place-order button {
   width: 60%;
@@ -914,6 +1003,7 @@ input[type="number"]::-webkit-inner-spin-button {
   font-weight: 300;
   text-align: center;
   margin: 20px 0;
+  color: #888;
 }
 .overlay_button {
   width: 400px;
@@ -971,12 +1061,13 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .no_product-title {
   text-align: center;
+  color: #888;
 }
 .no_product-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
+  width: 200px;
   height: 50px;
   border: 1px solid var(--first-color);
   border-radius: 10px;
@@ -1141,7 +1232,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .detail_contact p {
   font-size: 12px;
-  color: #333;
+  color: #888;
 }
 .detail_contact-info {
   display: flex;
@@ -1170,4 +1261,8 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 70%;
   display: flex;
   justify-content: flex-end;
+}
+
+.admin_page.active {
+  display: none;
 }

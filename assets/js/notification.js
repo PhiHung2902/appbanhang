@@ -1,15 +1,15 @@
 const overlay = document.querySelector(".overlay");
 // NO LOGIN
 const isLogin = JSON.parse(localStorage.getItem("isLogin"));
-
 // ADD TO CART
 function renderNotificationAddToCart() {
+  const isLogin = JSON.parse(localStorage.getItem("isLogin"));
   overlay.classList.add("active");
   if (isLogin) {
     const htmls = `<div class="message_box">
   <div class="overlay_header success">THÊM THÀNH CÔNG</div>
   <div class="overlay_desciption">
-  Bạn đã thêm sản phẩm thành công! Hãy kiểm tra ở mục "ĐƠN HÀNG".
+  Bạn đã thêm sản phẩm thành công! Hãy kiểm tra ở mục "GIỎ HÀNG".
   </div>
   <button class="overlay_button success">ĐÃ HIỂU</button>
   </div>`;
@@ -107,3 +107,30 @@ document.addEventListener("click", (event) => {
 const windowLocationRegister = () => {
   window.location = "login.html";
 };
+
+// THÔNG BÁO THÊM SẢN PHẨM ADMIN THÀNH CÔNG
+function notificationAdmin(value) {
+  overlay.classList.add("active");
+  const htmls = `<div class="message_box">
+  <div class="overlay_header success">${value}</div>
+  <button class="overlay_button success">ĐÓNG</button>
+  </div>`;
+  overlay.innerHTML = htmls;
+}
+
+function notificationAdminSuccess(value) {
+  overlay.classList.add("active");
+  const htmls = `<div class="message_box">
+  <div class="overlay_header success">${value}</div>
+  <button class="overlay_button success">ĐÓNG</button>
+  </div>`;
+  overlay.innerHTML = htmls;
+}
+function notificationAdminFail(value) {
+  overlay.classList.add("active");
+  const htmls = `<div class="message_box">
+  <div class="overlay_header fail">${value}</div>
+  <button class="overlay_button fail">ĐÓNG</button>
+  </div>`;
+  overlay.innerHTML = htmls;
+}

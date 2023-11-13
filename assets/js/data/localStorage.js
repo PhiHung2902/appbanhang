@@ -4,8 +4,11 @@ function saveUserToLocalStorage(username, password) {
   let userArr = JSON.parse(localStorage.getItem("USER")) || [];
 
   let userObj = {
+    id: userArr.length + 1,
     username: username,
     password: password,
+    cart: [],
+    orders: [],
   };
 
   // Thêm userObj mới vào mảng userArr
@@ -17,5 +20,5 @@ function saveUserToLocalStorage(username, password) {
 
 // Handle is 'isLogin' for login
 function checkUser(user) {
-  const userIsLogin = localStorage.setItem("userIsLogin", JSON.stringify(user));
+  localStorage.setItem("userIsLogin", JSON.stringify(user));
 }

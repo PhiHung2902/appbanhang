@@ -4,7 +4,11 @@ const bottomBar = document.querySelector(".bottom-bar");
 const listBar = document.querySelector(".bar-list");
 const barUser = document.querySelector(".bar-user");
 
-localStorage.setItem("PRODUCT", JSON.stringify(products));
+if (localStorage.getItem("PRODUCTS") == null) {
+  localStorage.setItem("PRODUCT", JSON.stringify(products));
+}
+localStorage.setItem("isAdminPage", "false");
+
 const render = () => {
   let isLogin = JSON.parse(localStorage.getItem("isLogin"));
   if (isLogin == true) {
@@ -26,9 +30,19 @@ const render = () => {
   }
 };
 const handleSignOut = () => {
+  if (JSON.parse(localStorage.getItem("isAdmin"))) {
+    JSON.stringify(localStorage.setItem("isAdmin", false));
+    window.location.href = "login.html";
+    return;
+  }
   JSON.stringify(localStorage.setItem("isLogin", "false"));
   localStorage.removeItem("CART");
-  window.location.href = "index.html";
   render();
 };
 render();
+// Ẩn hiện trang ADMIN
+if (JSON.parse(localStorage.getItem("isAdmin"))) {
+  document.querySelector(".admin_page").classList.remove("active");
+} else {
+  document.querySelector(".admin_page").classList.add("active");
+}

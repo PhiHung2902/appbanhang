@@ -20,7 +20,7 @@ const renderOrdersPage = (data) => {
     <img src="./assets/img/cart-img.png" alt="cart" />
   </div>
   <h2 class="no_product-title">
-    You don't have any orders yet
+    Bạn chưa có đơn hàng!
   </h2>
   <a href="index.html" class="no_product-link">GO SHOPPING</a>
 </div>`;

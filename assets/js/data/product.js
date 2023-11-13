@@ -475,15 +475,27 @@ const nextProduct = document.querySelector(".next-product");
 const prevProduct = document.querySelector(".prev-product");
 const product = document.querySelector(".product");
 const listNumber = document.querySelector(".item-number_page");
+/// XÁC ĐỊNH DATA SẢN PHẨM
+let productsLocal2 = [];
+if (
+  JSON.parse(localStorage.getItem("addedProduct")) ||
+  JSON.parse(localStorage.getItem("deleteAdmin")) ||
+  JSON.parse(localStorage.getItem("updateAdmin"))
+) {
+  productsLocal2 = JSON.parse(localStorage.getItem("PRODUCTS"));
+} else {
+  productsLocal2 = products;
+}
+
 let itemPerPage = 4,
   currentPage = 1;
 let start = 0,
   end = itemPerPage;
-const totalPage = Math.ceil(products.length / itemPerPage);
+const totalPage = Math.ceil(productsLocal2.length / itemPerPage);
 // start = itemPerPage * (currentPage - 1);
 // end = currentPage * itemPerPage;
 const renderProduct = () => {
-  const htmls = products.map((item, index) => {
+  const htmls = productsLocal2.map((item, index) => {
     const formattedTotal = new Intl.NumberFormat("vi-VN", {
       style: "currency",
       currency: "VND",
@@ -558,11 +570,20 @@ renderListNumber();
 
 const detailProduct = () => {
   const itemProduct = document.querySelectorAll(".detail-btn");
+  if (
+    JSON.parse(localStorage.getItem("addedProduct")) ||
+    JSON.parse(localStorage.getItem("deleteAdmin")) ||
+    JSON.parse(localStorage.getItem("updateAdmin"))
+  ) {
+    productsLocal2 = JSON.parse(localStorage.getItem("PRODUCTS"));
+  } else {
+    productsLocal2 = products;
+  }
   itemProduct.forEach((item, index) => {
     item.addEventListener("click", () => {
       const dataProduct = item.attributes.data.value;
-      products.forEach((item, index) => {
-        if (dataProduct == index) {
+      productsLocal2.forEach((item, index) => {
+        if (Number(dataProduct) == index) {
           localStorage.setItem("product-detail", JSON.stringify(item));
           renderProductDetail();
           return;
@@ -596,7 +617,7 @@ const renderProductDetail = () => {
       </div>
       <span>Or</span>
       <div class="price-box">
-        <span class="price-title">prepaid from</span>
+        <span class="price-title">trả trước từ</span>
         <span class="price">2.745.000 ₫</span>
     </div>
     </div>
@@ -609,7 +630,7 @@ const renderProductDetail = () => {
       </div>
     </div>
     <div class="detail_contact">
-      <p>Free purchasing consultation</p>
+      <p>Liên hệ hỗ trợ qua hotline</p>
       <div class="detail_contact-info">
         <span class="detail_phone">093 233 3233</span>
         <span class="detail_calendar">T2 - T7 (8:00 - 22:00)</span>

@@ -8,14 +8,13 @@ form.addEventListener("submit", (e) => {
   const password = form.password.value;
   if (username == "admin" && password == "admin") {
     loginNotification(true);
+    localStorage.setItem("isAdmin", "true");
     setTimeout(windowLocation, 1000);
     return;
+  } else {
+    localStorage.setItem("isAdmin", "false");
   }
-  // if (localStorageAuthencation(username, password)) {
-  //   localStorageAuthencation(username, password);
-  // } else {
-  //   authencation(username, password);
-  // }
+
   const userExistsInUsers2 = listUser.some(
     (user1) => user1.username === username
   );
@@ -69,4 +68,7 @@ function localStorageAuthencation(username, password) {
 
 const windowLocation = () => {
   window.location.href = "index.html";
+};
+const windowLocationAdmin = () => {
+  window.location.href = "admin.html";
 };
