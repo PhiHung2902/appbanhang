@@ -135,6 +135,9 @@ li {
   padding: 0 50px;
   animation: opacityAnimation 0.2s linear forwards;
 }
+.header_order-admin {
+  padding: 0 50px;
+}
 
 @keyframes opacityAnimation {
   from {
@@ -275,7 +278,7 @@ li {
   justify-content: center;
   border-radius: 4px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background: url("../img/background.jpg");
+  background: url("../img/bg_style.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   overflow: hidden;

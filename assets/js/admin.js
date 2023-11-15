@@ -4,7 +4,6 @@ const addProduct = () => {
   let nameValue = document.getElementById("name_product_admin").value;
   let priceValue = document.getElementById("price_product_admin").value;
 
-  // lỗi ở đây nè mai fix nhé
   let productsArr = JSON.parse(localStorage.getItem("PRODUCT")) || [];
 
   let prodtObject = {

@@ -569,6 +569,7 @@ renderProduct();
 renderListNumber();
 
 const detailProduct = () => {
+  const detailDiv = document.querySelector(".detail");
   const itemProduct = document.querySelectorAll(".detail-btn");
   if (
     JSON.parse(localStorage.getItem("addedProduct")) ||
@@ -581,11 +582,13 @@ const detailProduct = () => {
   }
   itemProduct.forEach((item, index) => {
     item.addEventListener("click", () => {
-      const dataProduct = item.attributes.data.value;
+      // const dataProduct = item.attributes.data.value;
+      const dataProduct = Number(item.getAttribute("data"));
       productsLocal2.forEach((item, index) => {
-        if (Number(dataProduct) == index) {
+        if (dataProduct == index) {
           localStorage.setItem("product-detail", JSON.stringify(item));
           renderProductDetail();
+          detailDiv.classList.remove("active");
           return;
         }
       });
@@ -622,10 +625,10 @@ const renderProductDetail = () => {
     </div>
     </div>
     <div class="detail_btn">
-      <button class="detail_buy">MUA NGAY</button>
+      <button class="detail_buy" onclick="notificationAdmin('CHỨC NĂNG CHƯA HOÀN THIỆN')">MUA NGAY</button>
       <div class="detail_form-buy">
-        <button class="detail_amortization">MUA TRẢ GÓP</button>
-        <button class="detail_card">
+        <button class="detail_amortization" onclick="notificationAdmin('CHỨC NĂNG CHƯA HOÀN THIỆN')">MUA TRẢ GÓP</button>
+        <button class="detail_card" onclick="notificationAdmin('CHỨC NĂNG CHƯA HOÀN THIỆN')">
           TRẢ BẰNG THẺ</button>
       </div>
     </div>
